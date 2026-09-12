@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trattoria Petrarca</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { ink:'#171614', coal:'#20201d', bronze:'#ad8050', cream:'#eee7d8', ember:'#df6b45' }, fontFamily: { display:['Georgia','serif'], sans:['ui-sans-serif','system-ui'] } } } };
+  </script>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="fixed top-0 left-0 right-0 z-10 px-5 md:px-10 py-5 flex items-center justify-between mix-blend-screen">
+    <a href="#top" class="font-serif text-xl tracking-tight">TP<span class="text-bronze">.</span></a>
+    <nav class="hidden md:flex gap-8 text-[11px] uppercase tracking-[.22em]"><a href="#menu" class="hover:text-bronze transition">Menù</a><a href="#gallery" class="hover:text-bronze transition">Piatti</a><a href="#booking" class="hover:text-bronze transition">Prenota</a></nav>
+    <a href="#booking" class="border border-cream/40 px-4 py-2 text-[10px] uppercase tracking-[.2em] hover:bg-cream hover:text-ink transition">Un tavolo</a>
+  </header>
+
+  <main id="top">
+    <section class="relative h-[90vh] min-h-[650px] overflow-hidden flex items-end">
+      <img id="hero-image" src="assets/img/trattoriapetrarca.PNG" alt="Trattoria Petrarca" />
+      <div class="absolute inset-0 bg-gradient-to-b from-ink/15 via-transparent to-ink"></div>
+      <div class="relative z-[1] px-6 md:px-16 pb-16 md:pb-24 max-w-5xl fade-up">
+        <p class="eyebrow mb-7">Cucina emiliana</p>
+        <h1 class="hero-title">Trattoria<br><span class="text-bronze">Petrarca.</span></h1>
+        <div class="mt-9 flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
+          <p class="max-w-xs text-sm leading-6 text-cream/65">Il fuoco, la pasta tirata a mano, il tempo giusto. Una tavola emiliana con lo sguardo rivolto alla notte.</p>
+          <a href="#menu" class="inline-flex items-center gap-4 text-xs uppercase tracking-[.18em] group">Scopri il menù <span class="w-10 h-10 rounded-full border border-bronze flex items-center justify-center group-hover:bg-bronze group-hover:text-ink transition">↘</span></a>
+        </div>
+      </div>
+      <div class="absolute right-7 bottom-8 hidden md:block text-right"><div class="eyebrow mb-2">Canossa / Reggio Emilia</div><div class="text-xs text-cream/50">Località Selvapiana, 82</div></div>
+    </section>
+
+    <section id="menu" class="px-6 md:px-16 py-28 md:py-40 max-w-[1500px] mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"><div><p class="eyebrow mb-5">La carta</p><h2 class="section-title">Pochi piatti.<br><em class="text-bronze">Fatti bene.</em></h2></div><p class="max-w-xs text-sm leading-6 text-cream/55">Ingredienti netti, cotture precise e quella generosità che non ha bisogno di spiegarsi.</p></div>
+      <div class="flex flex-wrap gap-2 mb-9" id="filters"><button class="pill active rounded-full border border-bronze/50 px-4 py-2 text-[10px] uppercase tracking-[.18em]" data-cat="Tutti">Tutti</button><button class="pill rounded-full border border-cream/20 px-4 py-2 text-[10px] uppercase tracking-[.18em]" data-cat="Antipasti">Antipasti</button><button class="pill rounded-full border border-cream/20 px-4 py-2 text-[10px] uppercase tracking-[.18em]" data-cat="Primi">Primi</button><button class="pill rounded-full border border-cream/20 px-4 py-2 text-[10px] uppercase tracking-[.18em]" data-cat="Secondi">Secondi</button><button class="pill rounded-full border border-cream/20 px-4 py-2 text-[10px] uppercase tracking-[.18em]" data-cat="Dolci">Dolci</button></div>
+      <div id="menu-grid" class="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-transparent"></div>
+    </section>
+
+    <section id="gallery" class="bg-[#24221e] px-6 md:px-16 py-24 md:py-32">
+      <div class="max-w-[1500px] mx-auto"><div class="mb-12"><p class="eyebrow mb-5">La materia, in movimento</p><h2 class="section-title">Una selezione<br>dalla <em class="text-bronze">nostra cucina.</em></h2></div>
+        <div class="grid lg:grid-cols-[1.25fr_.75fr] gap-8 items-stretch"><div class="glass min-h-[440px] relative overflow-hidden"><img id="dish-image" src="assets/img/capellacci.PNG" alt="Tris di tortelli" /><div class="absolute bottom-5 left-6 right-6 flex justify-between text-[10px] uppercase tracking-[.18em] text-cream/70"><span>Fotografia del piatto</span><span>Ingredienti freschi</span></div></div>
+          <div class="flex flex-col justify-between"><div><div class="flex flex-wrap gap-2 mb-8" id="dish-buttons"></div><p id="dish-number" class="eyebrow mb-4"></p><h3 id="dish-name" class="font-serif text-4xl md:text-5xl leading-none mb-6"></h3><p id="dish-copy" class="text-sm leading-7 text-cream/60 max-w-sm"></p></div><div class="mt-12 pt-6 border-t border-cream/15"><p class="eyebrow mb-2">Ingredienti</p><p id="dish-ingredients" class="text-xs text-cream/60 max-w-[250px]"></p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="px-6 md:px-16 py-28 md:py-40 max-w-[1500px] mx-auto"><div class="grid lg:grid-cols-[.75fr_1.25fr] gap-16 lg:gap-28"><div><p class="eyebrow mb-5">La vostra serata</p><h2 class="section-title mb-8">Prenota<br><em class="text-bronze">il tavolo.</em></h2><p class="text-sm leading-7 text-cream/55 max-w-xs">Per cene intime, tavolate rumorose e tutto ciò che sta nel mezzo. Vi aspettiamo in via del Pratello.</p><div class="mt-14 space-y-7 text-sm"><div><p class="eyebrow mb-2">Orari</p><p class="text-cream/70">Mar — Dom · 19:00 — 00:00<br><span class="text-cream/35">Chiuso il lunedì</span></p></div><div><p class="eyebrow mb-2">Indirizzo</p><p class="text-cream/70">Via del Pratello 68<br>40122 Bologna BO</p></div><div><p class="eyebrow mb-2">Contatti</p><p class="text-cream/70"><a href="tel:+39051555018" class="hover:text-bronze transition">+39 051 555 018</a></p></div></div></div>
+        <div><form id="booking-form" class="grid sm:grid-cols-2 gap-6"><label class="block"><span class="eyebrow block mb-3">Nome</span><input required class="w-full bg-transparent border-b border-cream/25 py-3 text-sm text-cream focus:border-bronze" placeholder="Il vostro nome"></label><label class="block"><span class="eyebrow block mb-3">Email</span><input required type="email" class="w-full bg-transparent border-b border-cream/25 py-3 text-sm text-cream focus:border-bronze" placeholder="nome@email.it"></label><label class="block"><span class="eyebrow block mb-3">Data</span><input required type="date" class="w-full bg-transparent border-b border-cream/25 py-3 text-sm text-cream focus:border-bronze"></label><label class="block"><span class="eyebrow block mb-3">Ospiti</span><select class="w-full bg-transparent border-b border-cream/25 py-3 text-sm text-cream"><option class="bg-ink">2 persone</option><option class="bg-ink">3 persone</option><option class="bg-ink">4 persone</option><option class="bg-ink">5+ persone</option></select></label><label class="block sm:col-span-2"><span class="eyebrow block mb-3">Nota (facoltativa)</span><textarea rows="3" class="w-full bg-transparent border-b border-cream/25 py-3 text-sm text-cream resize-none focus:border-bronze" placeholder="Allergie, occasioni speciali..."></textarea></label><button class="sm:col-span-2 mt-4 w-full bg-bronze text-ink py-4 text-[10px] uppercase tracking-[.22em] hover:bg-cream transition">Richiedi prenotazione <span class="ml-3">↗</span></button><p id="form-status" class="sm:col-span-2 hidden text-sm text-bronze"></p></form><div class="map-grid mt-16 h-48 border border-cream/15 relative overflow-hidden"><div class="absolute inset-0 flex items-center justify-center"><div class="w-3 h-3 bg-ember rounded-full ring-8 ring-ember/20"></div></div><span class="absolute left-4 top-4 eyebrow">BOLOGNA · CENTRO</span><span class="absolute right-4 bottom-4 text-[10px] text-cream/40">44.4949° N · 11.3426° E</span></div></div>
+        <div class="hours-map mt-4">
+          <div class="hours-table-wrap border-y border-cream/15">
+            <table class="hours-table w-full text-left">
+              <caption class="sr-only">Orari di apertura della Trattoria Petrarca</caption>
+              <thead><tr><th scope="col">Giorno</th><th scope="col">Pranzo</th><th scope="col">Cena</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Lunedì</th><td colspan="2" class="text-cream/35">Chiuso</td></tr>
+                <tr><th scope="row">Martedì</th><td>8:00 — 14:00</td><td>19:00 — 00:00</td></tr>
+                <tr><th scope="row">Mercoledì</th><td>8:00 — 14:00</td><td>19:00 — 00:00</td></tr>
+                <tr><th scope="row">Giovedì</th><td>8:00 — 14:00</td><td>19:00 — 00:00</td></tr>
+                <tr><th scope="row">Venerdì</th><td>8:00 — 14:00</td><td>19:00 — 00:00</td></tr>
+                <tr><th scope="row">Sabato</th><td>8:00 — 14:00</td><td>19:00 — 00:00</td></tr>
+                <tr><th scope="row">Domenica</th><td>8:00 — 14:00</td><td>19:00 — 00:00</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="eyebrow mt-8 mb-3">Dove trovarci</p>
+          <div class="map-frame overflow-hidden">
+            <iframe title="Mappa della Trattoria Petrarca" src="https://www.google.com/maps?q=Trattoria+Petrarca+Localit%C3%A0+Selvapiana+82%2C+42026+Canossa+RE&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-overlay" aria-hidden="true"><span class="map-pin"></span><span><strong>Trattoria Petrarca</strong><small>Località Selvapiana, 82 · Canossa RE</small></span></div>
+          </div>
+        </div>
+      </div></section>
+  </main>
+  <footer class="border-t border-cream/15 px-6 md:px-16 py-8 flex flex-col md:flex-row gap-4 justify-between text-[10px] uppercase tracking-[.18em] text-cream/40"><span>Trattoria Petrarca — Cucina emiliana</span><span>© 2026 — Fatto con tempo</span></footer>
+
+  <script src="assets/script.js" type="module"></script>
+  <!--
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+    import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/controls/OrbitControls.js';
+
+    const dishes = [
+      { name:'Tris di tortelli', cat:'Primi', copy:'Pasta fresca ripiena in tre colori, servita con burro nocciola e una pioggia di pistacchio.', ingredients:'sfoglia all’uovo · ricotta · burro · pistacchio · Parmigiano', price:'18 €', color:0xd98276 },
+      { name:'Gran tagliere', cat:'Antipasti', copy:'Salumi emiliani, formaggi stagionati, noci e sottoli: la tavola comincia sempre da qui.', ingredients:'prosciutto · salame · coppa · Parmigiano · noci · olive', price:'24 €', color:0xb96855 },
+      { name:'Filetti alla griglia', cat:'Secondi', copy:'Tre piccoli filetti, cotti sulla brace e profumati con alloro fresco. Semplicemente carne.', ingredients:'manzo · alloro · sale grosso · olio extravergine', price:'29 €', color:0x86503e },
+      { name:'Tagliata al sangue', cat:'Secondi', copy:'La nostra tagliata: crosta viva, cuore rosato, un filo d’olio e niente da nascondere.', ingredients:'controfiletto di manzo · olio · sale · pepe', price:'31 €', color:0x783d35 },
+      { name:'Gnocco fritto', cat:'Antipasti', copy:'Crescentine dorate, leggere e croccanti. Da aprire con le mani e riempire senza misura.', ingredients:'farina · strutto · prosciutto crudo · squacquerone', price:'12 €', color:0xd89043 },
+      { name:'Ravioli al burro', cat:'Primi', copy:'Ravioli dalla sfoglia sottile, lucidi di burro fuso e Parmigiano appena grattugiato.', ingredients:'sfoglia all’uovo · ricotta · burro · Parmigiano 36 mesi', price:'17 €', color:0xd8b85a },
+      { name:'Dolce all’ombra', cat:'Dolci', copy:'Strati morbidi, cacao e una colata fondente. Il finale che arriva sempre troppo presto.', ingredients:'cioccolato fondente · biscotto · crema · cacao', price:'9 €', color:0xa44532 }
+    ];
+
+    const menuGrid = document.querySelector('#menu-grid');
+    const renderMenu = (cat='Tutti') => { menuGrid.innerHTML = dishes.filter(d=>cat==='Tutti'||d.cat===cat).map((d,i)=>`<article class="dish-card bg-ink p-6 md:p-8 min-h-[235px] flex flex-col justify-between border border-transparent"><div class="flex justify-between gap-3"><span class="eyebrow">${d.cat}</span><span class="font-serif text-lg text-bronze">${d.price}</span></div><div><h3 class="font-serif text-2xl mb-2">${d.name}</h3><p class="text-xs leading-5 text-cream/45">${d.copy}</p></div></article>`).join(''); };
+    renderMenu();
+    document.querySelector('#filters').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b)return; document.querySelectorAll('.pill').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderMenu(b.dataset.cat); });
+
+    function makeScene(canvas, cameraZ=8) { const scene=new THREE.Scene(); const camera=new THREE.PerspectiveCamera(45,1,.1,100); camera.position.set(0,1,cameraZ); const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true}); renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.setSize(canvas.clientWidth,canvas.clientHeight,false); renderer.outputColorSpace=THREE.SRGBColorSpace; const clock=new THREE.Clock(); return {scene,camera,renderer,clock}; }
+    const hero = makeScene(document.querySelector('#hero-canvas'),8); hero.scene.fog=new THREE.FogExp2(0x171614,.045);
+    hero.scene.add(new THREE.AmbientLight(0xa98b6b,.7)); const hLight=new THREE.PointLight(0xdf8c52,28,18); hLight.position.set(2,3,2); hero.scene.add(hLight); const hLight2=new THREE.PointLight(0x775d9b,16,15); hLight2.position.set(-5,-2,-3); hero.scene.add(hLight2);
+    const stars=new THREE.BufferGeometry(), positions=[]; for(let i=0;i<500;i++){ positions.push((Math.random()-.5)*18,(Math.random()-.3)*10,(Math.random()-.5)*10); } stars.setAttribute('position',new THREE.Float32BufferAttribute(positions,3)); hero.scene.add(new THREE.Points(stars,new THREE.PointsMaterial({color:0xe4b77a,size:.025,transparent:true,opacity:.8})));
+    const forms=[]; for(let i=0;i<7;i++){ const geo=new THREE.IcosahedronGeometry(.45+Math.random()*.55,1); const mat=new THREE.MeshStandardMaterial({color:[0xad8050,0x6d4c40,0x4a4b3d,0x855f51][i%4],roughness:.3,metalness:.25,transparent:true,opacity:.8}); const m=new THREE.Mesh(geo,mat); m.position.set((Math.random()-.5)*9,(Math.random()-.3)*5,-1-Math.random()*3); m.userData={speed:.3+Math.random()*.5,phase:Math.random()*6}; hero.scene.add(m); forms.push(m); }
+    const pointer={x:0,y:0}; addEventListener('pointermove',e=>{pointer.x=(e.clientX/innerWidth-.5);pointer.y=(e.clientY/innerHeight-.5);});
+    function resizeWorld(w){ const canvas=w.renderer.domElement; const r=new ResizeObserver(()=>{const width=canvas.clientWidth,height=canvas.clientHeight;w.camera.aspect=width/height;w.camera.updateProjectionMatrix();w.renderer.setSize(width,height,false);}); r.observe(canvas); } resizeWorld(hero);
+
+    const viewer=makeScene(document.querySelector('#dish-canvas'),6); viewer.scene.add(new THREE.HemisphereLight(0xffe3bd,0x201b2a,2)); const vLight=new THREE.DirectionalLight(0xffc27d,4);vLight.position.set(3,5,4);viewer.scene.add(vLight); const fill=new THREE.PointLight(0x9274b5,12,10);fill.position.set(-4,1,1);viewer.scene.add(fill); const controls=new OrbitControls(viewer.camera,viewer.renderer.domElement); controls.enableDamping=true;controls.minDistance=3;controls.maxDistance=9; controls.target.set(0,.2,0);
+    let current=0, dishGroup=new THREE.Group(); viewer.scene.add(dishGroup);
+    const mat=(color,rough=.6)=>new THREE.MeshStandardMaterial({color,roughness:rough,metalness:.08});
+    function clearGroup(){ while(dishGroup.children.length) dishGroup.remove(dishGroup.children[0]); }
+    function addPlate(){ const p=new THREE.Mesh(new THREE.CylinderGeometry(2.35,2.5,.18,64),mat(0xeee7d8,.3));p.position.y=-.65;dishGroup.add(p); const inner=new THREE.Mesh(new THREE.CylinderGeometry(2.05,2.18,.05,64),mat(0x272421,.9));inner.position.y=-.54;dishGroup.add(inner); }
+    function buildDish(index){ clearGroup();addPlate(); const d=dishes[index]; const c=d.color;
+      if(index===0||index===5){ for(let i=0;i<10;i++){const g=new THREE.BoxGeometry(.7,.18,.48);const m=new THREE.Mesh(g,mat(index===0?[0xd47d75,0xd1a056,0x76a37f][i%3]:0xe4c96d));m.position.set((Math.random()-.5)*2.7,.05,(Math.random()-.5)*1.7);m.rotation.y=Math.random();dishGroup.add(m); } }
+      else if(index===1){ for(let i=0;i<8;i++){const g=new THREE.CylinderGeometry(.32,.38,.08,24);const m=new THREE.Mesh(g,mat(i%2?0xa75448:0xe1b866));m.rotation.x=Math.PI/2;m.position.set((i-3.5)*.45,.05,(i%2-.5)*.8);dishGroup.add(m);} for(let i=0;i<5;i++){const n=new THREE.Mesh(new THREE.SphereGeometry(.2,16,10),mat(0x9b6a36));n.position.set((Math.random()-.5)*2,.28,(Math.random()-.5)*1.3);dishGroup.add(n);} }
+      else if(index===2||index===3){ for(let i=0;i<3+(index===3?1:0);i++){const g=new THREE.BoxGeometry(1.35,.25,.55);const m=new THREE.Mesh(g,mat(c,.7));m.position.set((i-1.5)*.75,.15,(Math.random()-.5)*.7);m.rotation.y=(Math.random()-.5)*.35;dishGroup.add(m);} const leaf=new THREE.Mesh(new THREE.ConeGeometry(.18,.9,6),mat(0x536743));leaf.position.set(1.35,.35,.7);leaf.rotation.z=1;dishGroup.add(leaf); }
+      else if(index===4){ for(let i=0;i<7;i++){const g=new THREE.CapsuleGeometry(.28,.8,8,16);const m=new THREE.Mesh(g,mat(c,.45));m.position.set((Math.random()-.5)*1.8,.15,(Math.random()-.5)*1.5);m.rotation.z=(Math.random()-.5)*1;dishGroup.add(m);} }
+      else { const base=new THREE.BoxGeometry(1.6,.5,1.25); const cake=new THREE.Mesh(base,mat(c,.45));cake.position.y=-.15;dishGroup.add(cake); const top=new THREE.Mesh(new THREE.BoxGeometry(1.45,.12,1.1),mat(0x5b211d,.3));top.position.y=.18;dishGroup.add(top); }
+      dishGroup.rotation.y=.35; document.querySelector('#dish-number').textContent=`Piatto ${String(index+1).padStart(2,'0')}`;document.querySelector('#dish-name').textContent=d.name;document.querySelector('#dish-copy').textContent=d.copy;document.querySelector('#dish-ingredients').textContent=d.ingredients;document.querySelector('#dish-price').textContent=d.price;
+    }
+    const dishButtons=document.querySelector('#dish-buttons'); dishes.forEach((d,i)=>{const b=document.createElement('button');b.className='pill '+(i===0?'active ':'')+'rounded-full border border-cream/20 px-3 py-2 text-[10px] uppercase tracking-[.12em]';b.textContent=String(i+1).padStart(2,'0');b.title=d.name;b.onclick=()=>{current=i;document.querySelectorAll('#dish-buttons .pill').forEach(x=>x.classList.remove('active'));b.classList.add('active');buildDish(i);};dishButtons.appendChild(b);}); buildDish(0); resizeWorld(viewer);
+    function animate(){requestAnimationFrame(animate);const t=hero.clock.getElapsedTime();hero.camera.position.x+=(pointer.x*1.1-hero.camera.position.x)*.025;hero.camera.position.y+=(-pointer.y*.7-hero.camera.position.y)*.025;hero.camera.lookAt(0,0,0);forms.forEach((m,i)=>{m.rotation.x=t*m.userData.speed*.25;m.rotation.y=t*m.userData.speed*.35;m.position.y+=Math.sin(t*m.userData.speed+m.userData.phase)*.0015;});hero.renderer.render(hero.scene,hero.camera);dishGroup.rotation.y+=.002;controls.update();viewer.renderer.render(viewer.scene,viewer.camera);} animate();
+    document.querySelector('#booking-form').addEventListener('submit',e=>{e.preventDefault();const s=document.querySelector('#form-status');s.textContent='Richiesta ricevuta. Vi ricontatteremo a breve per confermare il tavolo.';s.classList.remove('hidden');e.target.reset();});
+  </script>
+  -->
+</body>
+</html>
