@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trattoria Petrarca</title>
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { theme: { extend: { colors: { ink:'#171614', coal:'#20201d', bronze:'#ad8050', cream:'#eee7d8', ember:'#df6b45' }, fontFamily: { display:['Georgia','serif'], sans:['ui-sans-serif','system-ui'] } } } };
@@ -13,7 +14,7 @@
 <body>
   <div class="grain"></div>
   <header class="fixed top-0 left-0 right-0 z-10 px-5 md:px-10 py-5 flex items-center justify-between mix-blend-screen">
-    <a href="#top" class="font-serif text-xl tracking-tight">TP<span class="text-bronze">.</span></a>
+    <a href="#top" aria-label="Trattoria Petrarca"><img src="assets/img/logo.png" alt="Trattoria Petrarca" class="h-10 w-auto object-contain" /></a>
     <nav class="hidden md:flex gap-8 text-[11px] uppercase tracking-[.22em]"><a href="#menu" class="hover:text-bronze transition">Menù</a><a href="#gallery" class="hover:text-bronze transition">Piatti</a><a href="#booking" class="hover:text-bronze transition">Prenota</a></nav>
     <a href="#booking" class="border border-cream/40 px-4 py-2 text-[10px] uppercase tracking-[.2em] hover:bg-cream hover:text-ink transition">Un tavolo</a>
   </header>
